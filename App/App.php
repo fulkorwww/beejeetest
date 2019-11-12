@@ -26,7 +26,7 @@ class App
         require_once ROOTPATH.DIRECTORY_SEPARATOR.$className.'.php';
     }
     
-    public function handleException (Throwable $e)
+    public static function handleException (Throwable $e)
     {
         if($e instanceof \App\Controllers\InvalidRouteException) {
             echo static::$kernel->launchAction('Error', 'error404', [$e]);
