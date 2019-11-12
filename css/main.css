@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+html,h1,h2,h3,h4,h5,h6,a{
+ font-family: "Raleway";
+}
+.navbar{
+ background:#F97300;
+}
+.nav-link , .navbar-brand{
+ color: #f4f4f4;
+ cursor: pointer;
+}
+.nav-link{
+ margin-right: 1em !important;
+}
+.nav-link:hover{
+ background: #f4f4f4;
+ color: #f97300;
+}
+.navbar-collapse{
+ justify-content: flex-end;
+}
+.navbar-toggler{
+  background:#fff !important;
+}
+/*tasklist*/
+.tasklist{
+ margin: 4em 0;
+ padding: 1em;
+ position: relative;
+ color:#888;
+ line-height:2;
+}
+.tasklist h1{
+ color:#F97300;
+}
+.tasklist .row{
+ border-bottom:4px solid #10828C;
+}
+/*newtask*/
+.newtask{
+ margin: 4em 0;
+ padding: 1em;
+ position: relative;  
+}
+.newtask h1{
+ color: #F97300; 
+}
+.newtask .btn-secondary{
+ background:  #F97300;
+ color: #fff;
+ border:0;
+}
+.newtask .form-control::placeholder{
+ color: #888;
+ font-size: 16px;
+}
+/*login*/
+.login{
+ margin: 4em 0;
+ padding: 1em;
+ position: relative;  
+}
+.login h1{
+ color: #F97300; 
+}
+.login .btn-secondary{
+ background:  #F97300;
+ color: #fff;
+ border:0;
+}
+.login .form-control::placeholder{
+ color: #888;
+ font-size: 16px;
+}
+/*error*/
+.error{
+ margin: 4em 0;
+ padding: 1em;
+ position: relative;  
+}
+.error h1{
+ color: #F97300; 
+}
