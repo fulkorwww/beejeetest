@@ -2,7 +2,15 @@
  <div class="container">
   <h1 class="text-center">Send new task</h1> 
 <?php
-  if(is_null($_POST['name']) & is_null($_POST['email']) & is_null($_POST['text'])){
+  $result=$name=$email=$text="";
+  try{
+	  $name=$_POST['name'];
+	  $email=$_POST['email'];
+	  $text=$_POST['text'];
+  }catch(Exception $e){
+	  $result="All fields are required";
+  }
+    if(strlen($result)==0 & strlen($name)==0 & strlen($email)==0 & strlen($text)==0){
 ?>
   <form method="post">
    <div class="row">
@@ -26,28 +34,26 @@
   </form>
 <?php
   }
-  elseif (is_null($_POST['name']) | is_null($_POST['email']) | is_null($_POST['text'])){  
-?>
-   <div class="row">
-    <div class="col-lg-2 col-md-2">
-    </div>
-	<div class="col-lg-8 col-md-8 col-sm-12">
-	<p>All fields are required</p>
-	</div>
-    <div class="col-lg-2 col-md-2">
-    </div>
-	</div>
-<?php
-  }
   else{
-    $query='INSERT INTO tasks(name, email, task) VALUES ("'.$_POST['name'].'","'.$_POST['email'].'","'.$_POST['text'].'")';
-    $result=App::$db->execute($query);
+	if (strlen($name)==0 | strlen($email)==0 | strlen($text)==0){
+	  $result="All fields are required";
+	}else{
+      $query='INSERT INTO tasks(name, email, task) VALUES ("'.$name.'","'.$email.'","'.$text.'")';
+      try{
+	    $qry=App::$db->execute($query);
+		$result="Task was successfully saved!";
+	  }catch(Exception $e){
+	    $result="Task can not be saved";
+	  }	
+    }  	
 ?>
-   <div class="row">
+    <div class="row">
     <div class="col-lg-2 col-md-2">
     </div>
 	<div class="col-lg-8 col-md-8 col-sm-12">
-	<p>Success!</p>
+	<p><?php
+	echo $result;
+	?></p>
 	</div>
     <div class="col-lg-2 col-md-2">
     </div>
